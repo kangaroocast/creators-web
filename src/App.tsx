@@ -76,6 +76,12 @@ export default function App() {
     <div style={styles.page}>
       <div style={styles.card}>
         <h1 style={styles.title}>Create a Studio</h1>
+        <div style={styles.notice}>
+          <strong>⚠ Test mode</strong> — this app uses a static admin key for auth.
+          In production, users authenticate with Google via Firebase, which issues a
+          short-lived token sent as <code>Authorization: Bearer …</code>. The admin key
+          is an internal operator shortcut and is never exposed to real users.
+        </div>
 
         {status === "idle" || status === "failed" ? (
           <>
@@ -182,6 +188,15 @@ const styles = {
   dot: {
     active: { width: 8, height: 8, borderRadius: "50%", background: "#4ade80", display: "inline-block" },
     pending: { width: 8, height: 8, borderRadius: "50%", background: "#555", display: "inline-block" },
+  },
+  notice: {
+    background: "#2a1f00",
+    border: "1px solid #5a3e00",
+    borderRadius: 8,
+    padding: "10px 14px",
+    fontSize: 12,
+    color: "#c9a84c",
+    lineHeight: 1.6,
   },
   link: {
     display: "block",
